@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	#RewriteCond %{HTTP_HOST} ^consultoriaempresarialsigma.esy.es
+	#RewriteRule (.*) http://www.consultoriaempresarialsigma.esy.es/$1 [R=301,L]
+	RewriteCond %{REQUEST_URI} ^/system.*
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.+)$ index.php?url=$1 [L]
+</IfModule>
